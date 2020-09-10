@@ -1,8 +1,8 @@
 # SAM control files
-.samconfig.toml
+samconfig.toml
 
 # Cloud9 files
-*.lambda-payloads.json
+*lambda-payloads.json
 *.application.json
 
 # Logs
