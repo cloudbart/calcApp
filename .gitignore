@@ -1,3 +1,10 @@
+# SAM control files
+.samconfig.toml
+
+# Cloud9 files
+*.lambda-payloads.json
+*.application.json
+
 # Logs
 logs
 *.log
@@ -102,3 +109,5 @@ dist
 
 # TernJS port file
 .tern-port
+
+.application.json
