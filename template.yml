@@ -2,11 +2,6 @@ AWSTemplateFormatVersion: 2010-09-09
 Description: Simple calculator app
 Transform: AWS::Serverless-2016-10-31
 Resources:
-  resultsBucket:
-    Type: AWS::S3::Bucket
-    Properties:
-      # Update BucketName here
-      BucketName: "uniqueBucketName"
   calcFunction:
     Type: AWS::Serverless::Function
     Properties:
@@ -15,6 +10,3 @@ Resources:
       MemorySize: 128
       Timeout: 100
       Description: A Lambda function which performs some calculations
-      Policies:
-        S3WritePolicy:
-          BucketName: !Ref resultsBucket
