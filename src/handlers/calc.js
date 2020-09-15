@@ -3,7 +3,7 @@ console.log('Loading the Calc function');
 exports.handler = function(event, context, callback) {
     console.log('Received event:', JSON.stringify(event, null, 2));
     if (event.a === undefined || event.b === undefined || event.op === undefined) {
-        callback("400 Invalid Input");
+        callback(new Error("400 Invalid Input"));
     }
     
     var result = {};
@@ -12,7 +12,7 @@ exports.handler = function(event, context, callback) {
     result.op = event.op;
     
     if (isNaN(event.a) || isNaN(event.b)) {
-        callback("400 Invalid Operand");
+        callback(new Error("400 Invalid Operand"));
     }
 
     switch(event.op)
@@ -30,7 +30,7 @@ exports.handler = function(event, context, callback) {
             result.c = result.b===0 ? NaN : Number(event.a) / Number(event.b);
             break;
         default:
-            callback("400 Invalid Operator");
+            callback(new Error("400 Invalid Operator"));
             break;
     }
     console.log('Calculation results:', JSON.stringify(result, null, 2));
