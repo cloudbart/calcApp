@@ -6,10 +6,10 @@ exports.handler = function(event, context, callback) {
         callback("400 Invalid Input");
     }
     
-    var res = {};
-    res.a = Number(event.a);
-    res.b = Number(event.b);
-    res.op = event.op;
+    var result = {};
+    result.a = Number(event.a);
+    result.b = Number(event.b);
+    result.op = event.op;
     
     if (isNaN(event.a) || isNaN(event.b)) {
         callback("400 Invalid Operand");
@@ -18,21 +18,21 @@ exports.handler = function(event, context, callback) {
     switch(event.op)
     {
         case "+":
-            res.c = res.a + res.b;
+            result.c = result.a + result.b;
             break;
         case "-":
-            res.c = res.a - res.b;
+            result.c = result.a - result.b;
             break;
         case "*":
-            res.c = res.a * res.b;
+            result.c = result.a * result.b;
             break;
         case "/":
-            res.c = res.b===0 ? NaN : Number(event.a) / Number(event.b);
+            result.c = result.b===0 ? NaN : Number(event.a) / Number(event.b);
             break;
         default:
             callback("400 Invalid Operator");
             break;
     }
-    console.log('Calculation results:', JSON.stringify(res, null, 2));
-    callback(null, res);
+    console.log('Calculation results:', JSON.stringify(result, null, 2));
+    callback(null, result);
 };
