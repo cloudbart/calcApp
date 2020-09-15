@@ -33,5 +33,6 @@ exports.handler = function(event, context, callback) {
             callback("400 Invalid Operator");
             break;
     }
+    console.log('Calculation results:', JSON.stringify(res, null, 2));
     callback(null, res);
 };
